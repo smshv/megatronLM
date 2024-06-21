@@ -1,22 +1,18 @@
 #!/bin/bash
-echo $(eval hostname)
+
+#echo $(eval hostname)
 
 DIR=`pwd`
 NUM_NODES=$1 #first arg of script var in smrun
 NUM_GPUS_PERNODE=$2 #second arg
+NUM_GPUS=$3 #third arg
 EP_SIZE=2
 GLOBAL_BATCH_SIZE=4
 BATCH_SIZE=1
 MP_SIZE=2
 
-export CXX=g++ #uncomment it if torch script needs to compile
-let "NUM_GPUS = $NUM_NODES * $NUM_GPUS_PERNODE"
-export UCX_TLS=tcps
-export OMPI_COMM_WORLD_SIZE=$NUM_GPUS
-export OMPI_COMM_WORLD_LOCAL_SIZE=$NUM_GPUS_PER_NODE
-export OMPI_UNIVERSE_SIZE=" $NUM_GPUS * 4 " #not important unless more mpi tasks needed to be spwaned
 export RANK=$OMPI_COMM_WORLD_RANK # manually set for megatron
-export WORLD_SIZE=$OMPI_COMM_WORLD_SIZE # manually set for megatron
+
 
 VISIBLE_DEVICES="0"
 for i in $(seq 1 $(( NUM_GPUS_PERNODE-1 )));
