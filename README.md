@@ -19,4 +19,4 @@ CXX=g++ pip install -v --disable-pip-version-check --no-cache-dir --no-build-iso
 MPICC="mpicc -shared" pip install --no-cache-dir --no-binary=mpi4py mpi4py
 
 ##
-## Run smrun.sh to run deepspeed-megatron in multinode setting in olcf##
+## Run smrun.sh to launch deepspeed-megatron in multinode setting in olcf##
