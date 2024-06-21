@@ -14,6 +14,8 @@ export UCX_TLS=tcps
 export OMPI_COMM_WORLD_SIZE=$NUM_GPUS
 export OMPI_COMM_WORLD_LOCAL_SIZE=$NUM_GPUS_PER_NODE
 export OMPI_UNIVERSE_SIZE=" $NUM_GPUS * 4 "
+export RANK=$OMPI_COMM_WORLD_RANK # manually set for megatron
+export WORLD_SIZE=$OMPI_COMM_WORLD_SIZE # manually set for megatron
 
 VISIBLE_DEVICES="0"
 for i in $(seq 1 $(( NUM_GPUS_PERNODE-1 )));

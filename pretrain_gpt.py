@@ -352,11 +352,6 @@ def git_ds_info():
 
 
 if __name__ == "__main__":
-    os.environ['WORLD_SIZE'] = os.environ.get('OMPI_COMM_WORLD_SIZE') #manually set for megatron
-    os.environ['RANK'] = os.environ.get('OMPI_COMM_WORLD_RANK') #manually set for megatron
-    # these two lines are added for olcf computing cluster
-    # May need to remove, edit for different envionment
-    print('Printint mpi info: ', os.environ.get('WORLD_SIZE'))
     git_ds_info()
     pretrain(train_valid_test_datasets_provider,
              model_provider,
