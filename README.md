@@ -1,5 +1,7 @@
 ## Environment and packages for deepspeed-megatronLM ##
 
+module load cuda/11.0.3
+
 module load open-ce/1.5.2-py39-0
 
 conda create -p path_to_condenv_dir --clone open-ce-1.5.2-py39-0

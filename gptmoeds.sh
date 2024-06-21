@@ -8,12 +8,12 @@ GLOBAL_BATCH_SIZE=4
 BATCH_SIZE=1
 MP_SIZE=2
 
-export CXX=g++
+export CXX=g++ #uncomment it if torch script needs to compile
 let "NUM_GPUS = $NUM_NODES * $NUM_GPUS_PERNODE"
 export UCX_TLS=tcps
 export OMPI_COMM_WORLD_SIZE=$NUM_GPUS
 export OMPI_COMM_WORLD_LOCAL_SIZE=$NUM_GPUS_PER_NODE
-export OMPI_UNIVERSE_SIZE=" $NUM_GPUS * 4 "
+export OMPI_UNIVERSE_SIZE=" $NUM_GPUS * 4 " #not important unless more mpi tasks needed to be spwaned
 export RANK=$OMPI_COMM_WORLD_RANK # manually set for megatron
 export WORLD_SIZE=$OMPI_COMM_WORLD_SIZE # manually set for megatron
 
