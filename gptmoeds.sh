@@ -1,4 +1,5 @@
 #!/bin/bash
+echo $(eval hostname)
 
 DIR=`pwd`
 NUM_NODES=$1 #first arg of script var in smrun
